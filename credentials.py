@@ -16,4 +16,9 @@ class Credentials:
     def display_credentials(cls):
         return Credentials.credentials_list
 
+    @classmethod
+    def find_by_application_name(cls, application_name):
+        for credential in Credentials.credentials_list:
+            if credential.application_name == application_name:
+                return credential
     
