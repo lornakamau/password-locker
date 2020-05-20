@@ -22,3 +22,13 @@ class TestUsers(unittest.TestCase):
         test_user = Users("Alfred", "101")
         test_user.add_user()
         self.assertEqual(len(Users.users_list), 2)
+
+    def test_remove_users(self):
+        self.new_user.add_user()
+        test_user = Users("Alfred", "101")
+        test_user.add_user()
+        test_user1 = Users("Wanjiru", "1")
+        test_user1.add_user()
+
+        test_user.delete_user()
+        self.assertEqual(len(Users.users_list), 2)
