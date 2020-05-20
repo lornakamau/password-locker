@@ -48,3 +48,6 @@ class TestUsers(unittest.TestCase):
 
         user_exists = Users.user_exists("Alfred")
         self.assertTrue(user_exists)
+
+if __name__ == '__main__':
+    unittest.main()
