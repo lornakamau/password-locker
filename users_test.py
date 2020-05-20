@@ -1,9 +1,11 @@
-class Users:
-    users_list = []
+import unittest
+from users import Users
 
-    def __init__ (self, username, login_password):
-        self.username = username
-        self.login_password = login_password
-    
-    def add_user(self):
-        Users.users_list.append(self)
+class TestUsers(unittest.TestCase):
+
+    def setUp(self):
+        self.new_user = Users("Lorna", "97")
+
+    def test_initialization(self):
+        self.assertEqual(self.new_user.username, "Lorna")
+        self.assertEqual(self.new_user.login_password, "97")
