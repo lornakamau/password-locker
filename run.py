@@ -11,3 +11,9 @@ def add_user(user):
 
 def delete_user(user):
     user.delete_user()
+
+def find_user(username):
+    return Users.find_by_username(username)
+
+def check_existing_user(username):
+    return Users.user_exists(username)
