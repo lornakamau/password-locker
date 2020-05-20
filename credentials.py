@@ -11,3 +11,9 @@ class Credentials:
 
     def delete_credentials(self):
         Credentials.credentials_list.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        return Credentials.credentials_list
+
+    
