@@ -10,3 +10,9 @@ class Users:
 
     def delete_user(self):
         Users.users_list.remove(self)
+
+    @classmethod
+    def find_by_username(cls, username):
+        for user in Users.users_list:
+            if user.username == username:
+                return user
