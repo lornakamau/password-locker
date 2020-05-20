@@ -27,7 +27,55 @@ def display_credentials():
 
 def credentials_exist(application_name):
     return Credentials.credentials_exist(application_name)
-    
+
 def main():
-    print("Hello Welcome to Password Locker.")
-    print("Sign up")
+    print("PASSWORD LOCKER")
+    print("--"*30)
+    print("An application that manages your passwords.")
+    print("\n")
+    print("What is your name?")
+    current_user = input()
+    print("\n")
+    print(f"Hello {current_user}. Are you a new user or would you like to create an account")
+    print("\n")
+
+    while True:
+                    print("Use these short codes : CC - create an account , SI - sign into an existing account , EX -exit the application ")
+
+                    short_code = input().upper()
+
+                    if short_code == 'CC':
+                        print("CREATE AN ACCOUNT")
+                        print("-"*10)
+
+                        print("Enter a name you wish to use as your username")
+                        print("*the username must contain alphabetical letters only*")
+                        
+                        while True:
+                            username = input()
+                            if username.isalpha():
+                                print("Enter a password for your account")
+                                print("*the password must be 6 characters or longer*")
+                                while True:
+                                    login_password = input()
+                                    if len(login_password) >= 6:
+                                        add_user(create_user(username, login_password))
+                                        print(f"Account for {username} created. Proceed to log in.")
+                                    else:
+                                        print("The password you entered is too short.")
+                                        print("Please use a password of 6 characters or more")
+                                        continue
+
+                            else:
+                                print("The username you entered is not valid.")
+                                print("Please use alphabetical letters only")
+                                continue
+                    
+                    elif short_code == 'EX':
+                            print("Bye....")
+                            break
+                
+
+if __name__ == '__main__':
+
+    main()
