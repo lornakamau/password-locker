@@ -38,9 +38,4 @@ class TestCredentials(unittest.TestCase):
 
         found_credential = Credentials.find_by_application_name("Instagram")
         self.assertEqual(found_credential.account_username, test_credentials.account_username)
-        # self.new_user.add_user()
-        # test_user1 = Users("Wanjiru", "1")
-        # test_user1.add_user()
-
-        # found_user = Users.find_by_username("Wanjiru")
-        # self.assertEqual(found_user.login_password, test_user1.login_password)
+        
