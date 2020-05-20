@@ -14,8 +14,16 @@ class TestCredentials(unittest.TestCase):
     def tearDown(self):
         Credentials.credentials_list = []
 
-    def test_add_multiple_users(self):
+    def test_add_multiple_credentials(self):
         self.new_credentials.add_credentials()
         test_credentials = Credentials("Instagram", "Alfred", "101")
         test_credentials.add_credentials()
         self.assertEqual(len(Credentials.credentials_list), 2)
+
+    def test_delete_credentials(self):
+        self.new_credentials.add_credentials()
+        test_credentials = Credentials("Instagram", "Alfred", "101")
+        test_credentials.add_credentials()
+
+        test_credentials.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list), 1)
