@@ -27,3 +27,6 @@ class TestCredentials(unittest.TestCase):
 
         test_credentials.delete_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
+
+    def test_display_all_credentials(self):
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
