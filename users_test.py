@@ -40,3 +40,11 @@ class TestUsers(unittest.TestCase):
 
         found_user = Users.find_by_username("Wanjiru")
         self.assertEqual(found_user.login_password, test_user1.login_password)
+
+    def test_user_exists(self):
+        self.new_user.add_user()
+        test_user = Users("Alfred", "101")
+        test_user.add_user()
+
+        user_exists = Users.user_exists("Alfred")
+        self.assertTrue(user_exists)
