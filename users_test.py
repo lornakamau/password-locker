@@ -32,3 +32,11 @@ class TestUsers(unittest.TestCase):
 
         test_user.delete_user()
         self.assertEqual(len(Users.users_list), 2)
+
+    def test_find_user_by_username(self):
+        self.new_user.add_user()
+        test_user1 = Users("Wanjiru", "1")
+        test_user1.add_user()
+
+        found_user = Users.find_by_username("Wanjiru")
+        self.assertEqual(found_user.login_password, test_user1.login_password)
