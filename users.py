@@ -7,3 +7,6 @@ class Users:
     
     def add_user(self):
         Users.users_list.append(self)
+
+    def delete_user(self):
+        Users.users_list.remove(self)
