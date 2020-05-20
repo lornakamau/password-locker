@@ -5,4 +5,9 @@ from credentials import Credentials
 def create_user(username, login_password):
     new_user = Users(username, login_password)
     return new_user
-    
+
+def add_user(user):
+    user.add_user()
+
+def delete_user(user):
+    user.delete_user()
