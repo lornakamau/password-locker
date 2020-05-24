@@ -31,8 +31,9 @@ class Credentials:
             if credential.application_name == application_name:
                 return True
         return False
-    
-    def generate_password(self,passwordLength=8):
+
+    @staticmethod
+    def generate_password(passwordLength=8):
         random_alphanumeric = string.ascii_letters + string.digits
         password = ''.join((random.choice(random_alphanumeric) for i in range(passwordLength)))
         return password

@@ -18,8 +18,8 @@ class Users:
                 return user
 
     @classmethod
-    def user_exists(cls, username):
+    def user_exists(cls, username, login_password):
         for user in Users.users_list:
-            if user.username == username:
+            if user.username == username and user.login_password == login_password:
                 return True
         return False
