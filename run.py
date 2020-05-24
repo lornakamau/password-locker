@@ -70,11 +70,11 @@ def find_credentials(application_name):
     '''
     return Credentials.find_by_application_name(application_name)
 
-def generate_a_password(passwordLength=8):
+def generate_a_password(passwordLength):
     '''
     Function that generates random password of 8 characters
     '''
-    return Credentials.generate_password(passwordLength=8)
+    return Credentials.generate_password(passwordLength)
 
 
 def main():
@@ -162,13 +162,23 @@ def main():
                                                     print("Would you like a generated password? (Y/N)")
                                                     gen_pass = input().upper()
                                                     if gen_pass == 'Y':
-                                                        account_password = generate_a_password(passwordLength=8)
-                                                        print(
-                                                            f"Password generated is {account_password}")
-                                                        add_credentials(create_credentials(
-                                                            application_name, account_username, account_password))
-                                                        print(f"Account credentials for your {application_name} account have been successfully saved.\n")
-                                                        break
+                                                        print("How long would you like your password to be?")
+                                                        print(" "*4 + "less than 8 characters: WEAK" + "\n" + " "*4 + "8 characters: STRONG" + "\n" + " "*4 + "8-26 characters: VERY STRONG")
+                                                        while True:
+                                                            try:
+                                                                passwordLength = int(input())
+                                                                if passwordLength in range(27):
+                                                                    account_password = generate_a_password(passwordLength)
+                                                                    print(
+                                                                        f"Password generated is {account_password}")
+                                                                    add_credentials(create_credentials(
+                                                                        application_name, account_username, account_password))
+                                                                    print(f"Account credentials for your {application_name} account have been successfully saved.\n")
+                                                                    break
+                                                            except ValueError:
+                                                                print("\nYou did not pick a valid password length")
+                                                                print("Please pick a number between 0-26 and try again")
+                                                                continue
                                                     elif gen_pass == 'N':
                                                         print(
                                                             f"Enter a password you wish to use for your {application_name} account")

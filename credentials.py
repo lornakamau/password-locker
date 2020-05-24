@@ -71,7 +71,7 @@ class Credentials:
         return False
 
     @staticmethod
-    def generate_password(passwordLength=8):
+    def generate_password(passwordLength):
         '''
         method that generates a random password for the user
         '''
