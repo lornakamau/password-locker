@@ -246,6 +246,40 @@ def main():
                         print("Try again or create an account\n")
                         continue
                 
+                elif short_code == 'DA':
+                    if len(Users.users_list) >= 1:
+                        print("\nDELETE YOUR ACCOUNT")
+                        print("-"*19)
+                        print("Enter your username")
+                        username = input().capitalize()
+                        print("Enter your password")
+                        login_password = input()
+
+                        if check_existing_user(username, login_password):
+                            while True:
+                                        print(f"Are you sure you want to delete your account? (Y/N)")
+                                        delete_account = input().upper()
+                                        if delete_account == 'Y':
+                                            remove_user(find_user(username))
+                                            print(f"\nYour account has been successfully deleted.\n")
+                                            break
+                                        elif delete_account == 'N':
+                                            print("\nPhew! Your account is still active.\n")
+                                            break
+                                        else:
+                                            print("You did not select a valid option")
+                                            print("Please enter (Y/N) and try again")
+                                            continue
+
+                        else:
+                            print("\nSeems like you do not have an active account or you entered the wrong details.")
+                            print("Please try again.\n")
+                            continue
+
+                    else:
+                        print("\nSorry, there are no active accounts at the moment.\n")
+                        continue
+
                 
 if __name__ == '__main__':
 
