@@ -280,7 +280,20 @@ def main():
                         print("\nSorry, there are no active accounts at the moment.\n")
                         continue
 
-                
+                elif short_code == 'EX':
+                    print("\nBye....")
+                    break
+
+                else:
+                    print("\nYou did not select a valid option.")
+                    print("Please try again.\n")
+                    continue
+
+        else:
+            print("\nSorry, I didn't quite get your name. Please try again")
+            continue
+        
+        break
 if __name__ == '__main__':
 
     main()
