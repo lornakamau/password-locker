@@ -37,7 +37,7 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials("Instagram", "Alfred", "101")
         test_credentials.add_credentials()
         self.assertEqual(len(Credentials.credentials_list), 2)
-
+ 
     def test_delete_credentials(self):
         '''
         test_delete_credentials to test if we can remove a credential from credentials list
@@ -76,3 +76,6 @@ class TestCredentials(unittest.TestCase):
 
         credentials_exist = Credentials.credentials_exist("Instagram")
         self.assertTrue(credentials_exist)
+
+if __name__ == '__main__':
+    unittest.main()
